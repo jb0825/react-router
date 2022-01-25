@@ -1,8 +1,13 @@
-import { NavLink } from "react-router-dom";
-import { links } from "./Routes";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { links } from "routes/Routes";
 
 export default function Nav() {
-  console.log(links);
+  // useLocation() : URL 에 대한 정보를 반환한다.
+  let location = useLocation();
+  console.log(location);
+
+  // useNavigate().navigate(path) : path 경로로 이동시킨다.
+  let navigate = useNavigate();
 
   // index Route : "/" 또는 "" 인덱스 패스일 경우 연결
   // * Route : Route 로 등록되지 않은 패스 처리
@@ -20,6 +25,15 @@ export default function Nav() {
           </NavLink>
         </li>
       ))}
+      <li>
+        <button
+          onClick={() => {
+            navigate("/about/button");
+          }}
+        >
+          Button Link
+        </button>
+      </li>
     </nav>
   );
 }

@@ -1,4 +1,4 @@
-import { About } from "pages";
+import About from "./About";
 
 export const routes = [
   { path: "/about", element: <About /> },
