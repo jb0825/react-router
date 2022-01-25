@@ -1,5 +1,5 @@
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { links } from "routes/Routes";
+import { links } from "routes";
 
 export default function Nav() {
   // useLocation() : URL 에 대한 정보를 반환한다.

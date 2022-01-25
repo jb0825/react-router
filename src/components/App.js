@@ -1,8 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import { Home } from "routes";
+import { Home, routes } from "routes";
 import Nav from "./Nav";
 import "./App.css";
-import { routes } from "routes/Routes";
 import React from "react";
 
 export default function App() {
