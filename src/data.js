@@ -34,3 +34,7 @@ let datas = [
 export function getDatas() {
   return datas;
 }
+
+export function getData(name) {
+  return datas.filter(data => data.name.includes(name));
+}

@@ -14,5 +14,6 @@ export const routes = [
 export const links = [
   { to: "/", text: "Home" },
   { to: "/about", text: "About" },
-  { to: "/about/test", text: "About Test" },
+  { to: "/about/name", text: "About Name" },
+  { to: "/about/name?filter=2", text: "Name Filter" },
 ];

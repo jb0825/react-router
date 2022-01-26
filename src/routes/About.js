@@ -1,26 +1,29 @@
-import { useParams } from "react-router-dom";
-import { getDatas } from "data";
+import { useParams, useSearchParams } from "react-router-dom";
+import { getData } from "data";
 
 export default function About() {
+  let [searchParams, setSearchParams] = useSearchParams();
   let params = useParams();
-  let datas = getDatas();
+  let data = getData(params.name);
+  let filter = searchParams.get("filter");
 
-  let result = datas
-    .filter(i => i.name === params.name)
-    .map((i, idx) => {
-      return (
-        <div key={idx}>
-          <p>no: {i.no}</p>
-          <p>name: {i.name}</p>
-          <p>phone: {i.phone}</p>
-        </div>
-      );
-    });
+  if (filter != null)
+    data = data.filter(d =>
+      d.name.toLowerCase().includes(filter.toLowerCase())
+    );
 
   return (
     <div>
       <h2>About {params.name}</h2>
-      {result.length === 0 ? <p>No Search Users!</p> : result}
+      {data.map((d, idx) => {
+        return (
+          <div key={idx} style={{ marginBottom: "20px" }}>
+            <div>no: {d.no}</div>
+            <div>name: {d.name}</div>
+            <div>phone: {d.phone}</div>
+          </div>
+        );
+      })}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { links } from "routes";
 
 export default function Nav() {
@@ -34,6 +34,12 @@ export default function Nav() {
           Button Link
         </button>
       </li>
+      <hr />
+      <h3>React-Router v6 에서의 history</h3>
+      <button onClick={() => navigate(-1)}>이전</button>
+      <button onClick={() => navigate(1)}>다음</button>
+      <hr />
+      <Outlet />
     </nav>
   );
 }

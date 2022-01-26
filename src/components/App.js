@@ -8,12 +8,13 @@ export default function App() {
   return (
     <div>
       Hello, React Router!
-      <Nav />
       <Routes>
-        <Route index element={<Home />} />
-        {routes.map((i, idx) => (
-          <Route {...i} key={idx} />
-        ))}
+        <Route element={<Nav />}>
+          <Route index element={<Home />} />
+          {routes.map((i, idx) => (
+            <Route {...i} key={idx} />
+          ))}
+        </Route>
       </Routes>
     </div>
   );
